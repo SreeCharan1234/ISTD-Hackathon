@@ -1315,9 +1315,9 @@ if selected=="1vs1":
        
 if selected=="collage":
     College=["LPU","IIT","NIT","IIIT","BITS","VIT","SRM","AMITY","MANIPAL","SRM","AMITY","MANIPAL"]
-    your_id = st.multiselect("which Collage ?", ans, [], placeholder="Select Your's Id")  
+    your_id = st.multiselect("which Collage ?", College, [], placeholder="Select Your's Id")  
     
-    if ans:
+    if College:
         pass
 
 
