@@ -501,7 +501,24 @@ if selected == "Dashboard":
         
         st.header("Badges 💫🌟",divider=True)
         total_badges = len(your_let_Badges["matchedUser"]["badges"]) # Rotate x-axis labels for better readability
-        
+        with st.expander(f"Total Badges: {total_badges}"):
+                # Create three columns
+                col1, col2, col3 = st.columns(3)
+
+                # Iterate over badges and distribute them to columns
+                for i, badge in enumerate(your_let_Badges["matchedUser"]["badges"]):
+                    if i % 3 == 0:
+                        with col1:
+                            st.write(f"**{badge['displayName']}**")
+                            st.image(badge['medal']['config']["iconGif"], width=100)
+                    elif i % 3 == 1:
+                        with col2:
+                            st.write(f"**{badge['displayName']}**")
+                            st.image(badge['medal']['config']["iconGif"], width=100)
+                    else:
+                        with col3:
+                            st.write(f"**{badge['displayName']}**")
+                            st.image(badge['medal']['config']["iconGif"], width=100)
         linkedin_embed_code = """
             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7169713233195388928" 
                     height="1115" 
