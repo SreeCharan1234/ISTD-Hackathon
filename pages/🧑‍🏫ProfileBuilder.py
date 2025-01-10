@@ -86,7 +86,6 @@ EXAMPLE_NO = 1
 st.set_page_config(page_title="KnowledgeBuilder", page_icon='src/Logo College.png', layout="wide", initial_sidebar_state="auto", menu_items=None)
 if "current_theme" not in st.session_state:
     st.session_state.current_theme = "light"
-
 def process_data(data):
     rows = []
     for category, topics in data.items():
@@ -100,19 +99,17 @@ def streamlit_menu(example=1):
         with st.sidebar:
             selected = option_menu(
                 menu_title="Profile - Builder ",  # required
-                options=["Register","Dashboard",  "1vs1","collage","ATS Detector","LinkedIn Profile"],  # required
-                icons=["bi bi-person-lines-fill","bi bi-border-all", "bi bi-binoculars-fill","bi bi-envelope-at","bi bi-file-person","bi bi-linkedin"],  # optional
+                options=["Register","Dashboard",  "1vs1","collage","LinkedIn Profile"],  # required
+                icons=["bi bi-person-lines-fill","bi bi-border-all", "bi bi-binoculars-fill","bi bi-envelope-at","bi bi-linkedin"],  # optional
                 menu_icon="cast",  # optional
                  
                 default_index=0,
             )
         return selected
-     
+  
 selected = streamlit_menu(example=EXAMPLE_NO)
-
 if 'questions' not in st.session_state:
     st.session_state.questions = []
-
 
 if selected == "Register":
     global username
@@ -379,24 +376,9 @@ if selected == "Dashboard":
         rank = 1007
         divisio = "Starters 142"
         date = date.today()
-        # Left column
-        data = {
-            "1704067200": 1, "1704153600": 1, "1704240000": 1, "1704326400": 1, "1704412800": 1,
-            "1704585600": 15, "1705190400": 1, "1705536000": 1, "1705708800": 3, "1705881600": 2,
-            "1705968000": 2, "1706313600": 2, "1706659200": 2, "1707264000": 1, "1707350400": 1,
-            "1711497600": 2, "1711929600": 6, "1712016000": 3, "1712361600": 2, "1712707200": 6,
-            "1712793600": 2, "1712880000": 1, "1713139200": 3, "1713225600": 3, "1713312000": 2,
-            "1713398400": 1, "1713571200": 1, "1716940800": 3, "1717027200": 2, "1717113600": 3,
-            "1717200000": 1, "1717286400": 11, "1717459200": 3, "1717718400": 4, "1718841600": 9,
-            "1718928000": 3, "1719100800": 1, "1719187200": 2, "1719273600": 5, "1719360000": 1,
-            "1719446400": 2, "1719705600": 1, "1719792000": 7, "1719878400": 6, "1719964800": 4,
-            "1720051200": 4, "1720137600": 1, "1720224000": 7, "1720310400": 3, "1720483200": 5,
-            "1720569600": 5, "1722211200": 1, "1722297600": 1, "1722384000": 1, "1690934400": 2,
-            "1691107200": 2, "1691193600": 3, "1694390400": 1, "1694822400": 1, "1694908800": 1,
-            "1696723200": 7, "1696982400": 2, "1697328000": 5, "1697414400": 1, "1702512000": 4,
-            "1703289600": 7, "1703721600": 3, "1703808000": 3, "1703894400": 1, "1703980800": 3
-        }
-
+        your_graph=graph("sreecharan9484")
+        data=your_graph['matchedUser']['userCalendar']['submissionCalendar']
+        data = json.loads(data)
         # Convert the data to a DataFrame
         df = pd.DataFrame(list(data.items()), columns=['Timestamp', 'Count'])
         df['Date'] = pd.to_datetime(df['Timestamp'].astype(int), unit='s')
@@ -533,88 +515,6 @@ if selected == "Dashboard":
         
     else:
         st.write("## Write Your UserName")
-
-if selected == "ATS Detector":
-    
-    def input_pdf_setup(uploaded_file):
-        if uploaded_file is not None:
-            ## Convert the PDF to image
-            images=pdf2image.convert_from_bytes(uploaded_file.read())
-            first_page=images[0]
-            # Convert to bytes
-            img_byte_arr = io.BytesIO()
-            first_page.save(img_byte_arr, format='JPEG')
-            img_byte_arr = img_byte_arr.getvalue()
-
-            pdf_parts = [
-                {
-                    "mime_type": "image/jpeg",
-                    "data": base64.b64encode(img_byte_arr).decode()  # encode to base64
-                }
-            ]
-            return pdf_parts
-        else:
-            raise FileNotFoundError("No file uploaded")
-    lott=load_lottieurl("https://lottie.host/6a18ec99-538f-48b7-b9f1-85549bfbc5e1/n6lDQ3tHy2.json") 
-    col1, col2,clo3= st.columns([2,5,1])
-    with col2:
-        st.header(f"Applicant Tracking System ", divider='rainbow')
-    with col1:
-        if lott:
-            st_lottie(lott, key="ad", height="150px",width="150px")
-        else:
-            st.error("Failed to load Lottie animation.")
-    with clo3   :
-        pass
-    with st.container(border=True):
-        input_text=st.text_area("Job Description : ",key="input")
-        uploaded_file=st.file_uploader("Upload your resume (PDF)",type=["pdf"])
-        if uploaded_file is not None:
-            st.write("PDF Uploaded Successfully")
-        col1, col2 ,col3,clo4= st.columns([2,2.5,2,2])  # Create two columns
-        with col1:
-            pass
-        with col2:
-            
-            submit1 = st.button("Tell Me About the Resume",type="primary", help="Know your resume",use_container_width=True)
-        with col3:
-            submit3 = st.button("Percentage match",type="primary", help="Percentage match",use_container_width=True)
-        with clo4:
-            pass
-
-        #submit2 = st.button("How Can I Improvise my Skills")
-
-        
-
-        input_prompt1 = """
-        You are an experienced Technical Human Resource Manager,your task is to review the provided resume against the job description. 
-        Please share your professional evaluation on whether the candidate's profile aligns with the role. 
-        Highlight the strengths and weaknesses of the applicant in relation to the specified job requirements.
-        """
-
-        input_prompt3 = """
-        You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of data science and ATS functionality, 
-        your task is to evaluate the resume against the provided job description. give me the percentage of match if the resume matches
-        the job description. First the output should come as percentage and then keywords missing and last final thoughts.
-        """
-
-        if submit1:
-            if uploaded_file is not None:
-                pdf_content=input_pdf_setup(uploaded_file)
-                response=get_gemini_response1(input_prompt1,pdf_content,input_text)
-                st.subheader("The Repsonse is")
-                st.write(response)
-            else:
-                st.write("Please uplaod the resume")
-
-        elif submit3:
-            if uploaded_file is not None:
-                pdf_content=input_pdf_setup(uploaded_file)
-                response=get_gemini_response1(input_prompt3,pdf_content,input_text)
-                st.subheader("The Repsonse is")
-                st.write(response)
-            else:
-                st.write("Please uplaod the resume")
 
 if selected == "LinkedIn Profile":
     
@@ -927,6 +827,7 @@ if selected == "LinkedIn Profile":
                             
         with st.container(border=True):
             pass           
+
 
 if selected=="1vs1":
     link="https://lottie.host/02515adf-e5f1-41c8-ab4f-8d07af1dcfb8/30KYw8Ui2q.json"
@@ -1312,7 +1213,8 @@ if selected=="1vs1":
             # Display Friend Count and Contribution
             st.write(f"**Friend Count:** {data['friendOfCount']}")
             st.write(f"**Contribution:** {data['contribution']}")
-       
+
+
 if selected=="collage":
     College=["LPU","IIT","NIT","IIIT","BITS","VIT","SRM","AMITY","MANIPAL","SRM","AMITY","MANIPAL"]
     your_id = st.multiselect("Which Collage ?", College, [], placeholder="Select Your's Id")  
