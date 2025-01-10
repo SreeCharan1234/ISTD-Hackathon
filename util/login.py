@@ -125,3 +125,7 @@ def listofuser(db):
     except Exception as e:
         print(f"Error retrieving users: {e}")
         return []  # Return an empty list in case of error
+
+
+
+print(listofuser(db))
