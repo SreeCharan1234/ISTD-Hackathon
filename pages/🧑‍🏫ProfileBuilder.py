@@ -496,12 +496,9 @@ if selected == "Dashboard":
                                 dt_object = datetime.datetime.fromtimestamp(int(timestamp))
                                 return dt_object.strftime("%Y-%m-%d %I:%M %p")  # AM/PM format
         processed_data = []                        
-        for submission in your_RQuestion:
-                                formatted_date = format_timestamp(submission['timestamp'])
-                                processed_data.append([ submission['title'], formatted_date])
+        
         df = pd.DataFrame(processed_data, columns=["Question Name", "Timestamp"])
-        st.header("Your Recent Question😊📕📅",divider=True)
-        st.write(df)
+        
         st.header("Badges 💫🌟",divider=True)
         total_badges = len(your_let_Badges["matchedUser"]["badges"]) # Rotate x-axis labels for better readability
         
