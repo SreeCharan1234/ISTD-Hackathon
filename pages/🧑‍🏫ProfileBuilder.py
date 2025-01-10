@@ -51,7 +51,6 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 import time
-
 if not firebase_admin._apps:
     
     service_account_info = {
@@ -101,8 +100,8 @@ def streamlit_menu(example=1):
         with st.sidebar:
             selected = option_menu(
                 menu_title="Profile - Builder ",  # required
-                options=["Register","Dashboard",  "1vs1","LinkedIn Profile","collage","ATS Detector"],  # required
-                icons=["bi bi-person-lines-fill","bi bi-border-all", "bi bi-binoculars-fill", "bi bi-linkedin","bi bi-envelope-at","bi bi-file-person"],  # optional
+                options=["Register","Dashboard",  "1vs1","collage","ATS Detector","LinkedIn Profile"],  # required
+                icons=["bi bi-person-lines-fill","bi bi-border-all", "bi bi-binoculars-fill","bi bi-envelope-at","bi bi-file-person","bi bi-linkedin"],  # optional
                 menu_icon="cast",  # optional
                  
                 default_index=0,
@@ -1315,24 +1314,10 @@ if selected=="1vs1":
             st.write(f"**Contribution:** {data['contribution']}")
        
 if selected=="collage":
-    ans=listofcollege(db)
+    College=["LPU","IIT","NIT","IIIT","BITS","VIT","SRM","AMITY","MANIPAL","SRM","AMITY","MANIPAL"]
     your_id = st.multiselect("which Collage ?", ans, [], placeholder="Select Your's Id")  
     
-    if your_id:
-        usernames=totalusers(your_id[0],4)
-        user_ratings = get_ratings_for_users(usernames)
-        st.write(user_ratings)
-        for user, rating in user_ratings.items():
-            if rating is not None:
-                st.write(f"{user}'s contest rating: {rating}")
-            else:
-                st.write(f"Could not retrieve contest rating for {user}")
-        active_days_list = get_active_days_for_users(usernames)
-
-        if active_days_list:
-            for username, days in active_days_list:
-                st.write(f"{username}: {days} active days in 2024")
-        else:
-            st.write("Error fetching active days for some users.")
+    if ans:
+        pass
 
 
