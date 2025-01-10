@@ -459,29 +459,51 @@ if selected == "Dashboard":
                 <p>No of question in each topic</p>
             </div>
         """, unsafe_allow_html=True)
-        data = {
-            "Arrays": 106,
-            "String": 35,
-            "HashMap and Set": 30,
-            "Dynamic Programming": 28,
-            "Sorting": 26,
-            "Math": 22,
-            "Two Pointers": 21,
-            "Matrix": 16,
-            "Binary Search": 16,
-            "Trees": 14
-        }
-        st.table(pd.DataFrame(data, index=["Count"]))
-        # Convert data to a Pandas DataFrame
-        df = pd.DataFrame.from_dict(data, orient='index', columns=['Count'])
+        your_data = get_leetcode_data1("sreecharan9484")
+        your_let_Badges=let_Badges("sreecharan9484")
+        your_skils=skills("sreecharan9484")
+        my_df = process_data(your_skils)
+        categories = list(my_df["Category"].unique())
+        selected_categories = st.multiselect("Select Categories for Your Data", categories, default=categories, key="my_categories")
 
-        # Create the bar graph with custom colors
-        fig, ax = plt.subplots()
-        df.plot(kind='bar', color=['red','blue'], ax=ax)  # Set color to 'skyblue'
-        ax.set_title('Topic Counts', color='darkblue')
-        ax.set_xlabel('Topic', color='gray')
-        ax.set_ylabel('Count', color='gray')
-        ax.tick_params(axis='x', rotation=45)  # Rotate x-axis labels for better readability
+            # Filter and Sort Data
+        filtered_my_df = my_df[my_df["Category"].isin(selected_categories)]
+        sorted_my_df = filtered_my_df.sort_values(by="Problems Solved", ascending=False)
+
+            # Bar Chart
+            
+        fig, ax = plt.subplots(figsize=(6, 4))
+        for category in sorted_my_df["Category"].unique():
+                category_data = sorted_my_df[sorted_my_df["Category"] == category]
+                ax.bar(category_data["Topic"], category_data["Problems Solved"], label=category)
+
+        ax.set_ylabel("Problems Solved")
+        ax.set_xlabel("Topic")
+        ax.set_title("Your Problems Solved (Sorted)")
+        ax.legend()
+        plt.xticks(rotation=90, ha="right")
+        st.pyplot(fig)
+            # Detailed Data
+        st.subheader("Detailed Data View")
+        st.dataframe(sorted_my_df)            
+        language_data = your_data['matchedUser']['languageProblemCount']
+        language_df = pd.DataFrame(language_data)
+        language_df.columns = ["Language", "Problems Solved"]
+        st.header("Questions per Language🤠", divider=True)
+        st.table(language_df)
+        header = [ "Question Name", "Timestamp"]
+        def format_timestamp(timestamp):
+                                dt_object = datetime.datetime.fromtimestamp(int(timestamp))
+                                return dt_object.strftime("%Y-%m-%d %I:%M %p")  # AM/PM format
+        processed_data = []                        
+        for submission in your_RQuestion:
+                                formatted_date = format_timestamp(submission['timestamp'])
+                                processed_data.append([ submission['title'], formatted_date])
+        df = pd.DataFrame(processed_data, columns=["Question Name", "Timestamp"])
+        st.header("Your Recent Question😊📕📅",divider=True)
+        st.write(df)
+        st.header("Badges 💫🌟",divider=True)
+        total_badges = len(your_let_Badges["matchedUser"]["badges"]) # Rotate x-axis labels for better readability
         
         linkedin_embed_code = """
             <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7169713233195388928" 
@@ -510,7 +532,7 @@ if selected == "Dashboard":
             with st.container(border=True):
                 with col2:
                     components.html(linkedin_embed_code2, height=1200)  # Adjust height as needed
-        st.pyplot(fig)
+        
 
         
     else:
