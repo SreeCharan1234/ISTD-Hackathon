@@ -969,7 +969,7 @@ if selected=="1vs1":
         with col1:
                 st.lottie(l, height=100, width=100)
         with col2:
-                st.header("Coding Platform analyzer 💻💻", divider=True)
+                st.header("Coding Platform Analyzer 💻💻", divider=True)
         your, midle, friend = st.columns([1.6,0.1, 1.6])
         with your:           
             user_profile = your_data['userProfile']
