@@ -101,7 +101,7 @@ Study Buddy utilizes AI-powered tools for an adaptive user experience. From pers
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/signup.png)
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/dashboard.png)
 
-## 5  1 vs 1
+## 5.  1 vs 1
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1vs1%201.png)
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1%20vs%201%202.png)
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1%20vs%201%203.png)
