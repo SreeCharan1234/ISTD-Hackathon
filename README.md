@@ -85,6 +85,8 @@ Study Buddy utilizes AI-powered tools for an adaptive user experience. From pers
 
 ## 1. Personalised Road Map 
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/roadmap.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/leetcode.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/Screenshot%202025-01-11%20122732.png)
 
 ## 2. Code Editor
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/codeeditor.png)
