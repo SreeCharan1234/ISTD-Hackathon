@@ -589,7 +589,7 @@ if selected== "Test YourSelf":
 
 if selected=="Simplyfi":
 
-    st.title("Simplyfi - Multi-Language Code Visualization Tool")
+    st.title("Simplyfi Your DSA Problems")
     
     # Visual generation section
     st.header("Generate Visuals")
