@@ -85,26 +85,27 @@ Study Buddy utilizes AI-powered tools for an adaptive user experience. From pers
 
 ## 1. Personalised Road Map 
 ![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/roadmap.png)
-![image](https://github.com/user-attachments/assets/98793a93-b9ed-4798-9f76-689c835f3e3b)
-![image](https://github.com/user-attachments/assets/2a055789-1801-404b-a95a-de32bd04ef7b)
-![image](https://github.com/user-attachments/assets/917200ee-c667-4156-8769-df18818ed263)
 
 ## 2. Code Editor
-![image](https://github.com/user-attachments/assets/e69cb0a2-7809-4cc0-87a6-9b067d7ae157)
-![image](https://github.com/user-attachments/assets/ea6ccd1f-92a6-4d7a-bf04-ff888802effe)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/codeeditor.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/code%20editor%202.png)
 
-## 3. Mock Interview
-![image](https://github.com/user-attachments/assets/97da419e-e6c8-4487-974c-99de049953df)
-
-## 4. Chat Bot
-![image](https://github.com/user-attachments/assets/ac308f95-fb36-4b68-bff4-24c5ed080a16)
+## 3. Test Yourself
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/testyourself1.png)
 
 # Profile Builder
 
-## 5. Dashboard
-![image](https://github.com/user-attachments/assets/632bbda0-27f5-4c33-a0e5-ac4e1091de2a)
-![image](https://github.com/user-attachments/assets/38c47621-bca6-48a0-a7ff-4c43caea1028)
-![image](https://github.com/user-attachments/assets/f14506b2-6e94-4cc7-b9d0-299bc0679031)
+## 4. sign up and Dashboard
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/signup.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/dashboard.png)
+
+## 5  1 vs 1
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1vs1%201.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1%20vs%201%202.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1%20vs%201%203.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1%20vs%201.png)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/1%20vs%201%204.png)
+
 
 ## 6.Linkdin Profile Builder
-![image](https://github.com/user-attachments/assets/001d14b8-faa1-40eb-84c7-51db9f87e481)
+![image](https://github.com/SreeCharan1234/ISTD-Hackathon/blob/main/images/linkedin.png)
