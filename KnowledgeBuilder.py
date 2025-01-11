@@ -151,42 +151,15 @@ def streamlit_menu(example=1):
             selected = option_menu(
                 
                 menu_title="Knowledge Builder🧠",  # required
-                options=["Road Map","Mock Interview","Code Editor"],  # required
+                options=["Road Map","Test YourSelf","Code Editor"],  # required
                 icons=["geo-alt-fill","bi bi-camera-video-fill","bi bi-code-slash"],  # optional
                 menu_icon="cast",  # optional
                 default_index=0,
             )
         return selected
-    if example == 2:
-        selected = option_menu(
-                menu_title="Knowledge Builder",  # required
-                options=["Road Map","Code Editor","Mock Interview","AI Bot"],  # required
-                icons=["geo-alt-fill","bi bi-code-slash","bi bi-camera-video-fill","robot"],  # optional
-                menu_icon="cast",  # optional
-                default_index=0,
-            )
-        return selected
-    if example == 3:
-        selected = option_menu(
-                menu_title="Knowledge Builder",  # required
-                options=["Road Map","Ai bot","Code-editior","Question"],  # required
-                icons=["geo-alt-fill","robot","bi bi-code-slash","bi bi-question-diamond-fill"],  # optional
-                menu_icon="cast",  # optional
-                default_index=0,
-            )
-        return selected
-        return selected
-    if example == 4:
-        with st.sidebar:
-            selected = option_menu(
-                menu_title="Main Menu",  # required
-                options=["Road Map", "Resume Builder", "Ai bot","ATS-DECTOR"],  # required
-                icons=["geo-alt-fill", "file-person-fill", "robot"],  # optional
-                menu_icon="cast",  # optional
-                default_index=0,                
-                # optional
-            )
-        return selected
+    
+        
+    
 
 def main():
     link="https://lottie.host/299688b5-e6b2-48ad-b2e9-2fa14b1fb117/TXqg2APXpL.json"
@@ -607,7 +580,7 @@ sum_of_list([5,3,4,4])"""
     
     st.write(s)
 
-if selected== "Mock Interview":
+if selected== "Test YourSelf":
     main()
 
 
