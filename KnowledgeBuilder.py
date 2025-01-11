@@ -31,6 +31,7 @@ import io
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 from youtube_transcript_api import YouTubeTranscriptApi
 from util.common import get_gemini_response,get_leetcode_data,get_gemini_response1,load_lottieurl
+from util.simplyfy import syntax_highlight,generate_ast,generate_flowchart
 import time
 
 global s
@@ -87,8 +88,10 @@ current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 EXAMPLE_NO = 1
 is_listening = False
 recognizer = sr.Recognizer()
+
 with open(r"Response.json", 'r') as file:
     RESPONSE_JSON = json.load(file)
+
 def input_pdf_setup(uploaded_file):
         if uploaded_file is not None:
             ## Convert the PDF to image
@@ -138,6 +141,7 @@ def get_transcript(video_url):
   transcript_api = YouTubeTranscriptApi() 
   transcript = transcript_api.get_transcript(video_id)
   return transcript
+
 def pseudo_bold(text):
     bold_text = ''.join(chr(0x1D5D4 + ord(c) - ord('A')) if 'A' <= c <= 'Z' else
                         chr(0x1D5EE + ord(c) - ord('a')) if 'a' <= c <= 'z' else c
@@ -150,10 +154,10 @@ def streamlit_menu(example=1):
         with st.sidebar:
             selected = option_menu(
                 
-                menu_title="Knowledge Builder🧠",  # required
-                options=["Road Map","Test YourSelf","Code Editor"],  # required
-                icons=["geo-alt-fill","bi bi-camera-video-fill","bi bi-code-slash"],  # optional
-                menu_icon="cast",  # optional
+                menu_title="Knowledge Builder🧠",  
+                options=["Road Map","Test YourSelf","Code Editor","Simplyfi"],  
+                icons=["geo-alt-fill","bi bi-camera-video-fill","bi bi-code-slash","bi bi-camera-video-fill"],
+                menu_icon="cast",
                 default_index=0,
             )
         return selected
@@ -583,4 +587,19 @@ sum_of_list([5,3,4,4])"""
 if selected== "Test YourSelf":
     main()
 
+if selected=="Simplyfi":
 
+    st.title("Simplyfi - Multi-Language Code Visualization Tool")
+    st.write("### Instructions")
+    st.write("1. Enter your code and select the language.\n2. Click 'Generate Visuals' to view the syntax tree, flowchart, and dependency graph.\n3. Use ChatWithCode for code explanations.\n4. Visit Contribute for links to my work.")
+
+    # Visual generation section
+    st.header("Generate Visuals")
+    code_input = st.text_area("Enter your code here:", height=300)
+    language = st.selectbox("Select Language:", ["Python", "JavaScript", "Java", "C++", "C#"])
+    if st.button("Generate Visuals"):
+        if code_input.strip():
+            # Flowchart for any language
+            st.header("Flowchart")
+            flowchart = generate_flowchart(code_input)
+            st.graphviz_chart(flowchart)

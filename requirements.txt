@@ -45,3 +45,7 @@ streamlit_chat
 
 mysql-connector-python
 pdf2image
+pygments
+graphviz
+networkx
+toml
