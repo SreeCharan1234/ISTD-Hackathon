@@ -168,7 +168,7 @@ def main():
     with col1:
         st.lottie(l, height=100, width=100)
     with col2:
-        st.header(f":rainbow[Mock Interview]💻💻", divider='rainbow')
+        st.header(f":rainbow[Test YourSelf]💻💻", divider='rainbow')
     if 'quiz_data' not in st.session_state:
         st.session_state.quiz_data = None
     if 'user_answers' not in st.session_state:
