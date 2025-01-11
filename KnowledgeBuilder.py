@@ -590,9 +590,7 @@ if selected== "Test YourSelf":
 if selected=="Simplyfi":
 
     st.title("Simplyfi - Multi-Language Code Visualization Tool")
-    st.write("### Instructions")
-    st.write("1. Enter your code and select the language.\n2. Click 'Generate Visuals' to view the syntax tree, flowchart, and dependency graph.\n3. Use ChatWithCode for code explanations.\n4. Visit Contribute for links to my work.")
-
+    
     # Visual generation section
     st.header("Generate Visuals")
     code_input = st.text_area("Enter your code here:", height=300)
